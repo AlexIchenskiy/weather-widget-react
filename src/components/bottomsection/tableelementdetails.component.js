@@ -43,7 +43,7 @@ function TableElementDetails(props) {
       setSunset(new Date(weather["sys"]["sunset"]*1000).getHours() + ":" + new Date(weather["sys"]["sunset"]*1000).getMinutes());
       setSunrise(new Date(weather["sys"]["sunrise"]*1000).getHours() + ":" + new Date(weather["sys"]["sunrise"]*1000).getMinutes());
       setPressurehPa(weather["main"]["pressure"] + " hPa");
-      setPressuremmHg(Math.round(weather["main"]["pressure"] * 0.750062 * 100) / 100 + " mmHg");
+      setPressuremmHg(Math.round(weather["main"]["pressure"] * 0.750062 * 100) / 100 + " \nmmHg");
       setHumidity(weather["main"]["humidity"] + "%");
       setWindSpeed(weather["wind"]["speed"] + " m/s");
       setWindDirection(windDegToText(weather["wind"]["deg"]));
@@ -80,7 +80,7 @@ function TableElementDetails(props) {
         <div className = "tableElementDetailsIconOuter">
           <img className = "tableElementDetailsIcon" src = {pressureIcon}></img>
         </div>
-        <p style = {textStyles}>{pressuremmHg}</p>
+        <p className = "tableElementDetailsPressuremmHg" style = {textStyles}>{pressuremmHg}</p>
       </div>
 
       <div className = "tableElementDetailsHumidity">
