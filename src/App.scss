@@ -1,0 +1,322 @@
+/* Imports */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400&display=swap');
+
+/* General Styles */
+* {
+  transition: 0.3s all;
+}
+
+body, html, #root, .App {
+  width: 100vw;
+  height: 100vh;
+  min-width: 320px;
+  min-height: 500px;
+  overflow: hidden;
+}
+
+.weatherWidget {
+  position: absolute;
+  top: calc(50% - 250px);
+  left: calc(50% - 375px);
+  width: 750px;
+  height: 500px;
+  border-radius: 15px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  backdrop-filter: blur(0.9px);
+  overflow: hidden;
+}
+
+.weatherWidgetBlur {
+  z-index: -1;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  backdrop-filter: brightness(0.9) blur(4px);
+}
+
+.weatherWidgetUpdateButton {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 12px;
+  height: 12px;
+  border-radius: 12px;
+  border: 6px solid white;
+  transition: all 0.3s;
+}
+
+.weatherWidgetUpdateButton:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+.weatherWidgetUpdateButton:active {
+  transform: scale(0.9);
+}
+
+/* Inner Styles */
+
+.weatherWidgetInner {
+  width: 650px;
+  height: 400px;
+  margin: 50px;
+  display: flex;
+  flex-direction: column;
+}
+
+.topSection, .bottomSection {
+  width: 100%;
+}
+
+.topSection, .bottomSection {
+  height: 44%;
+}
+
+.bottomSection {
+  padding-top: 6%;
+}
+
+.topSection {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mainInfo, .mainDegrees {
+  height: 100%;
+}
+
+.mainInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 40%;
+  margin-left: 30px;
+}
+
+.mainInfo > * > *, .mainInfo > * {
+  margin: 0;
+}
+
+.mainInfoTitle {
+  font-size: 36px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+}
+
+.mainInfoSubtitle {
+  font-size: 18px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+}
+
+.mainInfoIcon {
+  margin-left: 15px;
+}
+
+.mainInfoIconOuter {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mainInfoText {
+  font-size: 24px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+}
+
+.mainDegrees {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 30%;
+  margin-right: 30px;
+}
+
+.mainDegreesUp {
+  width: 100%;
+  height: 70%;
+}
+
+.mainDegreesUp > p {
+  text-align: center;
+  margin: 0;
+  height: 100%;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 200;
+  font-size: 128px;
+}
+
+.mainDegreesBottom {
+  width: 100%;
+  height: 30%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mainDegreesBottom > p {
+  text-align: center;
+  margin: 0;
+  height: 100%;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  font-size: 64px;
+}
+
+.mainDegreesBottom > * {
+  display: block;
+}
+
+.tableCaption {
+  position: relative;
+  width: 100%;
+  height: 25%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  border-bottom: 2px solid;
+}
+
+.tableCaption > * {
+  height: 100%;
+  margin-left: 30px;
+}
+
+.tableCaption > * > * {
+  height: 100%;
+  margin-bottom: 0px;
+  margin-top: 0px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  font-size: 24px;
+  transition: 0.3s all;
+}
+
+.tableCaption > * > *:hover {
+  transform: scale(1.1);
+}
+
+.tableCaption > * > *:active {
+  transform: scale(0.9);
+}
+
+.tableCaptionBorder {
+  position: absolute;
+  width: 100px;
+  height: 4px;
+  margin: 0px;
+  bottom: -1px;
+  left: 0px;
+  transition: 0.3s all;
+}
+
+.tableElementsOuter {
+  width: 2100px;
+  height: 75%;
+  position: relative;
+}
+
+.tableElements {
+  width: 2100px;
+  height: 100%;
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  transition: 0.3s all;
+}
+
+.tableElements > * {
+  width: 650px;
+  height: 100%;
+  margin-right: 50px;
+}
+
+.tableElementPeriod {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: flex-end;
+}
+
+.periodElement {
+  width: 80px;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.periodElement > *, .tableElementDetails > * > * {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  font-size: 24px;
+}
+
+.periodElementIconOuter, .tableElementDetailsIconOuter {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.periodElementIcon, .tableElementDetailsIcon {
+  position: absolute;
+}
+
+.tableElementDetails {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.tableElementDetails > * {
+  width: 180px;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Media queries */
+
+@media (max-width: 1280px) {
+  .weatherWidget {
+    transform: scale(0.75, 0.75);
+  }
+}
+
+@media (max-width: 600px) {
+  .weatherWidget {
+    transform: scale(0.45, 0.45);
+  }
+}
+
+@media (max-width: 375px) {
+  .weatherWidget {
+    transform: scale(0.45, 0.45);
+  }
+}
+
+@media (max-width: 320px) {
+  .weatherWidget {
+    transform: scale(0.4, 0.4);
+  }
+}
