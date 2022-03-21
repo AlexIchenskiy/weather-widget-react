@@ -40,8 +40,10 @@ function TableElementDetails(props) {
 
   useEffect(() => {
     if(weather) {
-      setSunset(new Date(weather["sys"]["sunset"]*1000).getHours() + ":" + new Date(weather["sys"]["sunset"]*1000).getMinutes());
-      setSunrise(new Date(weather["sys"]["sunrise"]*1000).getHours() + ":" + new Date(weather["sys"]["sunrise"]*1000).getMinutes());
+      let minutes = new Date(weather["sys"]["sunset"]*1000).getMinutes();
+      minutes = minutes < 10 ? '0' + minutes : minutes;
+      setSunset(new Date(weather["sys"]["sunset"]*1000).getHours() + ":" + minutes);
+      setSunrise(new Date(weather["sys"]["sunrise"]*1000).getHours() + ":" + minutes);
       setPressurehPa(weather["main"]["pressure"] + " hPa");
       setPressuremmHg(Math.round(weather["main"]["pressure"] * 0.750062 * 100) / 100 + " \nmmHg");
       setHumidity(weather["main"]["humidity"] + "%");
@@ -70,7 +72,7 @@ function TableElementDetails(props) {
       <div className = "tableElementDetailsSun">
         <p style = {textStyles}>{sunrise}</p>
         <div className = "tableElementDetailsIconOuter">
-          <img className = "tableElementDetailsIcon" src = {sunIcon}></img>
+          <img className = "tableElementDetailsIcon" src = {sunIcon} alt = 'sun' ></img>
         </div>
         <p style = {textStyles}>{sunset}</p>
       </div>
@@ -78,7 +80,7 @@ function TableElementDetails(props) {
       <div className = "tableElementDetailsPressure">
         <p style = {textStyles}>{pressurehPa}</p>
         <div className = "tableElementDetailsIconOuter">
-          <img className = "tableElementDetailsIcon" src = {pressureIcon}></img>
+          <img className = "tableElementDetailsIcon" src = {pressureIcon} alt = 'pressure' ></img>
         </div>
         <p className = "tableElementDetailsPressuremmHg" style = {textStyles}>{pressuremmHg}</p>
       </div>
@@ -86,7 +88,7 @@ function TableElementDetails(props) {
       <div className = "tableElementDetailsHumidity">
         <p style = {textStyles}>Humidity</p>
         <div className = "tableElementDetailsIconOuter">
-          <img className = "tableElementDetailsIcon" src = {humidityIcon}></img>
+          <img className = "tableElementDetailsIcon" src = {humidityIcon} alt = 'humidity' ></img>
         </div>
         <p style = {textStyles}>{humidity}</p>
       </div>
@@ -94,7 +96,7 @@ function TableElementDetails(props) {
       <div className = "tableElementDetailsWind">
         <p style = {textStyles}>{windSpeed}</p>
         <div className = "tableElementDetailsIconOuter">
-          <img className = "tableElementDetailsIcon" src = {windIcon}></img>
+          <img className = "tableElementDetailsIcon" src = {windIcon} alt = 'wind' ></img>
         </div>
         <p style = {textStyles}>{windDirection}</p>
       </div>

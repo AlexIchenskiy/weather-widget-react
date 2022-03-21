@@ -1,4 +1,4 @@
-let date = new Date;
+let date = new Date();
 
 //const date = new Date('December 17, 1995 03:00:00');
 //const date = new Date('December 17, 1995 08:00:00');
